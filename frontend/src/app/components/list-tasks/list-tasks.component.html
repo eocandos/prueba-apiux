@@ -1,0 +1,8 @@
+<div *ngFor="let task of taskList" >
+  {{task.taskId}} - {{task.taskName}} - {{task.taskDescription}} - {{task.active}}
+</div>
+
+<button mat-menu-item routerLink="/addTask">
+ <!--  <i class="fas fa-edit"></i> -->
+  <span> Agregar Tarea</span>
+</button>
