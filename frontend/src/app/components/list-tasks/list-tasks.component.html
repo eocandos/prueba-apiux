@@ -1,8 +1,26 @@
-<div *ngFor="let task of taskList" >
+<div *ngFor="let task of taskList">
   {{task.taskId}} - {{task.taskName}} - {{task.taskDescription}} - {{task.active}}
+
+  <div>
+    <button class="btn-icons" mat-icon-button [matMenuTriggerFor]="menu">
+      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+      <span> GESTIONAR</span>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/task/{{task.taskId}}/edit">
+        <i class="fas fa-edit"></i>
+        <span> Editar</span>
+      </button>
+<!--       <button mat-menu-item (click)="delete(project)">
+        <i class="fas fa-trash-alt"></i>
+        <span> Eliminar</span>
+      </button> -->
+    </mat-menu>
+  </div>
+
 </div>
 
 <button mat-menu-item routerLink="/addTask">
- <!--  <i class="fas fa-edit"></i> -->
+  <!--  <i class="fas fa-edit"></i> -->
   <span> Agregar Tarea</span>
 </button>

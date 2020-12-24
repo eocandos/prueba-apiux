@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { apiUrl } from '../../environments/environment';
 import { Observable, of } from 'rxjs';
 import { Task } from '../models/task.model';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -22,4 +23,23 @@ export class TasksService {
     return this.http.post<Task>(url, task);
   }
 
+  getTask(id: number): Observable<Task> {
+    const url = `${this.taskUrl}/${id}`;
+    return this.http.get<Task>(url).pipe(
+      catchError((_) => {
+        console.log('Get Task Failed');
+        return of(new Task());
+      })
+    );
+  }
+
+  update(task: Task): Observable<Task> {
+    const url = `${this.taskUrl}/${task.taskId}/edit`;
+    return this.http.put<Task>(url, task);
+  }
+
+  delete(taskId: number): Observable<any> {
+    const url = `${this.taskUrl}/${taskId}`;
+    return this.http.delete(url);
+  }
 }

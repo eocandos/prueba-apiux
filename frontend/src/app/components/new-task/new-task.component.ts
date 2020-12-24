@@ -20,8 +20,7 @@ export class NewTaskComponent implements OnInit {
       if (!task) {
         throw new Error();
       }
-      console.log('created: ', task);
-      // this.router.navigate(['home']);
+      this.router.navigate(['home']);
     });
   }
 
