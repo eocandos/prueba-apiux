@@ -1,2 +1,20 @@
-<p>Próximas tareas a realizar</p>
-<app-list-tasks></app-list-tasks>
+<div class="task-lists-container">
+  <div class="task-list-header">
+
+      <h2>POR HACER</h2>
+
+      <button type="submit" routerLink="/addTask" class="btn">NUEVA
+      </button>
+
+  </div>
+  <app-pending-task-lists [taskList]="taskList"></app-pending-task-lists>
+</div>
+
+<div class="task-lists-container">
+  <div class="task-list-header">
+
+      <h2>REALIZADAS</h2>
+
+  </div>
+  <app-ready-task-lists [taskList]="taskList"></app-ready-task-lists>
+</div>

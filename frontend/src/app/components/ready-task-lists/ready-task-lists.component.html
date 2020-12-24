@@ -1,0 +1,22 @@
+<div *ngFor="let task of taskList">
+  <div *ngIf="!task.active" class="task-list-table">
+    <p class="task-lists">
+      {{task.taskName}} - {{task.taskDescription}}
+    </p>
+    <div class="task-lists-controls">
+      <a class="btn-icons" mat-icon-button [matMenuTriggerFor]="menu">
+        <i class="fas fa-edit"></i>
+        <span> GESTIONAR</span>
+      </a>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item (click)="setIncomplete(task)">
+          <span>Reabrir</span>
+        </a>
+        <a mat-menu-item (click)="delete(task)">
+          <span>Eliminar</span>
+        </a>
+      </mat-menu>
+    </div>
+  </div>
+
+</div>

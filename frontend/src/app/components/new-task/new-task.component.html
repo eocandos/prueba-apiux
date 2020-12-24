@@ -1,20 +1,24 @@
-<form #form="ngForm" class="form" (ngSubmit)="addTask()">
+<div class="task-lists-container">
 
-  <!--Name-->
-  <mat-form-field class="full-width">
-    <input matInput placeholder="Nombre tarea" [(ngModel)]="task.taskName" id="taskName"
-      maxlength="120" name="taskName" required>
-  </mat-form-field>
+  <div class="task-list-header">
+    <h2>NUEVA TAREA</h2>
+  </div>
+  <form #form="ngForm" class="form" (ngSubmit)="addTask()">
+
+    <!--Name-->
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Nombre tarea" [(ngModel)]="task.taskName" id="taskName" maxlength="120"
+        name="taskName" required>
+    </mat-form-field>
 
     <!--Description-->
-  <mat-form-field class="full-width">
-    <input matInput placeholder="Descripción tarea" [(ngModel)]="task.taskDescription" id="taskDescription"
-      maxlength="120" name="taskDescription" required>
-  </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Descripción tarea" [(ngModel)]="task.taskDescription" id="taskDescription"
+        maxlength="120" name="taskDescription" required>
+    </mat-form-field>
 
-  <div class="form-group">
-    <button type="submit" [disabled]="!form.form.valid"
-      class="btn btn-lg btn-primary btn-block">AGREGAR TAREA</button>
-  </div>
+      <button type="submit" [disabled]="!form.form.valid" class="btn btn-lg btn-primary btn-block">Guardar</button>
 
-</form>
+  </form>
+
+</div>

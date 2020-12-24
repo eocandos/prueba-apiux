@@ -38,6 +38,12 @@ export class TasksService {
     return this.http.put<Task>(url, task);
   }
 
+  changeState(task: Task): Observable<Task> {
+    const url = `${this.taskUrl}/${task.taskId}/change-state`;
+    return this.http.put<Task>(url, null);
+  }
+
+
   delete(taskId: number): Observable<any> {
     const url = `${this.taskUrl}/${taskId}`;
     return this.http.delete(url);
